@@ -47,6 +47,15 @@ library LibDiamond {
         mapping(bytes4 => bool) supportedInterfaces;
         // owner of the contract
         address contractOwner;
+        // maps Loans to addresses
+        mapping(address => Loan) loans;
+    }
+
+    struct Loan {
+        uint256 loanAmount;
+        address nftAddress;
+        uint256 nftTokenId;
+        bool isActive;
     }
 
     function diamondStorage()
